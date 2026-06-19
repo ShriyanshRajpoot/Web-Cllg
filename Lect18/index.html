@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ============================================================
+//  CLASS 3 — Arrays Deep Dive
+//  Topics: Array Methods | for | for...in | for...of |
+//          forEach | map | filter | reduce
+// ============================================================
+
+
+// ─────────────────────────────────────────────
+//  QUICK RECAP
+// ─────────────────────────────────────────────
+
+let fruits = ["apple", "banana", "mango", "kiwi", "grapes"];
+
+console.log(fruits[0]);      // "apple"
+console.log(fruits.length);  // 5
+
+
+// ─────────────────────────────────────────────
+//  1. ARRAY METHODS — ADD / REMOVE
+// ─────────────────────────────────────────────
+
+// ── push() — END mein add karo
+// Returns: new length
+let nums = [1, 2, 3];
+let newLen = nums.push(4, 5);
+console.log(nums);    // [1, 2, 3, 4, 5]
+console.log(newLen);  // 5
+
+// ── pop() — END se remove karo
+// Returns: removed element
+let last = nums.pop();
+console.log(last);  // 5
+console.log(nums);  // [1, 2, 3, 4]
+
+// ── unshift() — BEGINNING mein add karo
+// Returns: new length
+nums.unshift(0);
+console.log(nums); // [0, 1, 2, 3, 4]
+
+// ── shift() — BEGINNING se remove karo
+// Returns: removed element
+let first = nums.shift();
+console.log(first); // 0
+console.log(nums);  // [1, 2, 3, 4]
+
+/*
+  SUMMARY:
+  push()    → end mein ADD
+  pop()     → end se REMOVE
+  unshift() → beginning mein ADD
+  shift()   → beginning se REMOVE
+*/
