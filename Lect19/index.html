@@ -1,0 +1,24 @@
+2. ARRAY METHODS — FIND / CHECK
+// ─────────────────────────────────────────────
+
+let colors = ["red", "green", "blue", "yellow"];
+
+// ── indexOf() — element ka index nikalo
+// Returns: index, ya -1 if not found
+console.log(colors.indexOf("green"));  // 1
+console.log(colors.indexOf("pink"));   // -1
+
+// ── includes() — element hai ya nahi
+// Returns: true / false
+console.log(colors.includes("blue"));  // true
+console.log(colors.includes("pink"));  // false
+
+// ── find() — condition match karne wala PEHLA element
+// Returns: element ya undefined
+let numbers = [5, 12, 8, 130, 44];
+let found = numbers.find(n => n > 10);
+console.log(found); // 12 (pehla element jo 10 se bada hai)
+
+// ── findIndex() — condition match karne wala pehla element ka INDEX
+let foundIdx = numbers.findIndex(n => n > 10);
+console.log(foundIdx); // 1
