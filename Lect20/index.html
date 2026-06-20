@@ -1,0 +1,40 @@
+// ─────────────────────────────────────────────
+//  3. ARRAY METHODS — MODIFY / EXTRACT
+// ─────────────────────────────────────────────
+
+// ── splice(start, deleteCount, ...items) — array ko modify karo IN PLACE
+// Returns: removed elements ka array
+
+let arr = [1, 2, 3, 4, 5];
+
+// Sirf delete karna
+let removed = arr.splice(1, 2); // index 1 se 2 elements hata do
+console.log(arr);     // [1, 4, 5]
+console.log(removed); // [2, 3]
+
+// Delete + Insert
+let arr2 = ["a", "b", "c", "d"];
+arr2.splice(1, 1, "X", "Y"); // index 1 pe 1 delete, "X" "Y" insert
+console.log(arr2); // ["a", "X", "Y", "c", "d"]
+
+// Sirf insert karna (delete 0)
+arr2.splice(2, 0, "Z");
+console.log(arr2); // ["a", "X", "Z", "Y", "c", "d"]
+
+// ── slice(start, end) — new array return karo (original change nahi hota)
+// end index EXCLUDE hota hai
+let letters = ["a", "b", "c", "d", "e"];
+let sliced = letters.slice(1, 4); // index 1 se 3 tak
+console.log(sliced);   // ["b", "c", "d"]
+console.log(letters);  // ["a", "b", "c", "d", "e"] — unchanged!
+
+// Negative index bhi use kar sakte ho
+console.log(letters.slice(-2));    // ["d", "e"] — last 2 elements
+console.log(letters.slice(1, -1)); // ["b", "c", "d"] — 1 se last-1 tak
+
+/*
+  splice vs slice yaad karne ka trick:
+  splice → "splic-e" = in-place change, original MUTATE karta hai
+  slice  → "slic-e"  = copy nikalta hai, original SAFE rehta hai
+*/
+
