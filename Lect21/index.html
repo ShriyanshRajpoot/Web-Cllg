@@ -1,0 +1,31 @@
+// ─────────────────────────────────────────────
+//  5. ARRAY METHODS — SORT / REVERSE
+// ─────────────────────────────────────────────
+
+// ── sort() — array sort karo IN PLACE
+let animals = ["cat", "ant", "dog", "bat"];
+animals.sort();
+console.log(animals); // ["ant", "bat", "cat", "dog"] — alphabetical
+
+// ⚠️ Numbers ke liye direct sort() kaam nahi karta!
+let scores = [40, 100, 1, 5, 25];
+scores.sort();
+console.log(scores); // [1, 100, 25, 40, 5] ← WRONG! (string comparison)
+
+// Numbers ke liye comparator function chahiye
+scores.sort((a, b) => a - b);  // Ascending
+console.log(scores); // [1, 5, 25, 40, 100] ✅
+
+scores.sort((a, b) => b - a);  // Descending
+console.log(scores); // [100, 40, 25, 5, 1] ✅
+
+/*
+  Comparator rule:
+  (a, b) => a - b   → Ascending  (negative = a pehle, positive = b pehle)
+  (a, b) => b - a   → Descending
+*/
+
+// ── reverse() — array ulta karo IN PLACE
+let rev = [1, 2, 3, 4, 5];
+rev.reverse();
+console.log(rev); // [5, 4, 3, 2, 1]
