@@ -1,0 +1,47 @@
+// ─────────────────────────────────────────────
+//  6. LOOPS
+// ─────────────────────────────────────────────
+
+let students = ["Ankit", "Priya", "Rahul", "Sneha"];
+
+// ── for loop — classic, index control chahiye toh
+for (let i = 0; i < students.length; i++) {
+  console.log(i, students[i]);
+}
+// 0 Ankit
+// 1 Priya
+// 2 Rahul
+// 3 Sneha
+
+// ── for...of — clean, directly element chahiye toh
+for (let student of students) {
+  console.log(student);
+}
+// Ankit
+// Priya
+// Rahul
+// Sneha
+
+// ── for...in — index milta hai (arrays ke liye avoid karo — objects ke liye better)
+for (let index in students) {
+  console.log(index, students[index]); // index string hota hai for...in mein!
+}
+
+/*
+  ⚠️ for...in WARNING:
+  for...in arrays ke saath technically kaam karta hai,
+  lekin index STRING form mein aata hai, aur agar array
+  pe extra properties add ki ho toh woh bhi iterate karta hai.
+  Arrays ke liye for...of ya forEach use karo.
+  for...in → OBJECTS ke liye best hai.
+*/
+
+let person = { name: "Ankit", age: 22, city: "Indore" };
+
+// for...in OBJECTS ke liye perfect hai
+for (let key in person) {
+  console.log(key, ":", person[key]);
+}
+// name : Ankit
+// age : 22
+// city : Indore
