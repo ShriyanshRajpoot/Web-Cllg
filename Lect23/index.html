@@ -1,0 +1,78 @@
+// ─────────────────────────────────────────────
+//  7. forEach()
+// ─────────────────────────────────────────────
+
+/*
+  forEach(callback) — har element pe function chalao
+  Returns: NOTHING (undefined)
+  Original array: CHANGE NAHI HOTA
+  Use karo jab: sirf iterate karna ho, koi new array nahi chahiye
+*/
+
+let prices = [100, 200, 300, 400];
+
+prices.forEach(function(price, index, array) {
+  console.log(`Index ${index}: ₹${price}`);
+});
+// Index 0: ₹100
+// Index 1: ₹200
+// Index 2: ₹300
+// Index 3: ₹400
+
+// Arrow function ke saath (modern)
+prices.forEach((price, index) => {
+  console.log(index, price);
+});
+
+// Sirf element chahiye — index optional hai
+prices.forEach(price => console.log(price));
+
+// forEach se return karna kaam nahi karta!
+// forEach ALWAYS returns undefined — no new array
+
+
+// ─────────────────────────────────────────────
+//  8. map()
+// ─────────────────────────────────────────────
+
+/*
+  map(callback) — har element ko TRANSFORM karo
+  Returns: NEW array (same length)
+  Original array: CHANGE NAHI HOTA
+  Use karo jab: har element ko modify karke new array chahiye
+*/
+
+let nums2 = [1, 2, 3, 4, 5];
+
+// Har element double karo
+let doubled = nums2.map(n => n * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+console.log(nums2);   // [1, 2, 3, 4, 5] — original unchanged!
+
+// String array ko uppercase karo
+let names = ["ankit", "priya", "rahul"];
+let upperNames = names.map(name => name.toUpperCase());
+console.log(upperNames); // ["ANKIT", "PRIYA", "RAHUL"]
+
+// Object array se sirf ek field nikalo
+let users = [
+  { id: 1, name: "Ankit", age: 22 },
+  { id: 2, name: "Priya", age: 20 },
+  { id: 3, name: "Rahul", age: 25 }
+];
+
+let userNames = users.map(user => user.name);
+console.log(userNames); // ["Ankit", "Priya", "Rahul"]
+
+// Object transform karo
+let userCards = users.map(user => ({
+  id: user.id,
+  displayName: user.name.toUpperCase(),
+  isAdult: user.age >= 18
+}));
+console.log(userCards);
+// [
+//   { id: 1, displayName: "ANKIT", isAdult: true },
+//   { id: 2, displayName: "PRIYA", isAdult: true },
+//   { id: 3, displayName: "RAHUL", isAdult: true }
+// ]
