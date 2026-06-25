@@ -1,0 +1,78 @@
+// ─────────────────────────────────────────────
+//  11. METHOD CHAINING — Ek ke baad ek
+// ─────────────────────────────────────────────
+
+/*
+  map, filter, reduce — teeno ko chain kar sakte ho
+  Ek ka result doosre ka input ban jaata hai
+*/
+
+let employees = [
+  { name: "Ankit",  dept: "Tech",    salary: 60000 },
+  { name: "Priya",  dept: "HR",      salary: 45000 },
+  { name: "Rahul",  dept: "Tech",    salary: 75000 },
+  { name: "Sneha",  dept: "Tech",    salary: 55000 },
+  { name: "Vikram", dept: "Finance", salary: 50000 }
+];
+
+// Tech department ke employees ki salaries ka total
+let techTotal = employees
+  .filter(emp => emp.dept === "Tech")     // Step 1: sirf Tech filter karo
+  .map(emp => emp.salary)                 // Step 2: sirf salary nikalo
+  .reduce((acc, sal) => acc + sal, 0);    // Step 3: total karo
+
+console.log(techTotal); // 60000 + 75000 + 55000 = 190000
+
+
+// ─────────────────────────────────────────────
+//  12. LOOPS vs ARRAY METHODS — Kab kya use karein
+// ─────────────────────────────────────────────
+
+/*
+  ┌─────────────────┬─────────────────────────────────────────────┐
+  │ Loop / Method   │ Kab use karein                              │
+  ├─────────────────┼─────────────────────────────────────────────┤
+  │ for             │ Index chahiye, break/continue use karna ho  │
+  │ for...of        │ Sirf elements chahiye, clean iteration      │
+  │ for...in        │ Object ke keys iterate karne ke liye        │
+  │ forEach()       │ Sirf iterate karna, no return needed        │
+  │ map()           │ Har element transform karna, new array      │
+  │ filter()        │ Condition se elements chhanna, new array    │
+  │ reduce()        │ Array ko single value mein convert karna    │
+  └─────────────────┴─────────────────────────────────────────────┘
+
+  forEach vs map:
+  → forEach: kuch print karna ho, side effect chahiye — return nahi
+  → map: new array chahiye transformed data ke saath
+
+  map vs filter:
+  → map: SAME length, har element transform hota hai
+  → filter: CHHOTI length, kuch elements hata dete hain
+*/
+
+
+// ─────────────────────────────────────────────
+//  QUICK SUMMARY
+// ─────────────────────────────────────────────
+/*
+  ✅ push / pop         → END pe add/remove
+  ✅ unshift / shift    → BEGINNING pe add/remove
+  ✅ indexOf / includes → element dhundho
+  ✅ find / findIndex   → condition se dhundho
+  ✅ splice             → in-place modify (delete + insert)
+  ✅ slice              → copy nikalo (original safe)
+  ✅ concat / flat      → arrays combine/flatten karo
+  ✅ join               → array → string
+  ✅ sort / reverse     → order change karo
+  ✅ for                → classic loop, index chahiye ho
+  ✅ for...of           → clean element iteration
+  ✅ for...in           → object keys ke liye
+  ✅ forEach()          → iterate karo, return nahi chahiye
+  ✅ map()              → transform karo → new array (same length)
+  ✅ filter()           → chhano → new array (shorter)
+  ✅ reduce()           → ek value mein compress karo
+  ✅ Chaining           → filter → map → reduce ek saath
+*/
+    </script>
+</body>
+</html>
